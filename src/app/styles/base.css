@@ -1,0 +1,32 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* QoL styles */
+a {
+  display: inline;
+  @apply text-blue-500;
+  position: relative;
+}
+
+a::after {
+  content: "";
+  @apply bg-blue-600;
+  width: 0;
+  height: .15em;
+  bottom: -.15em;
+  left: 0;
+  position: absolute;
+  transition: width .3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
