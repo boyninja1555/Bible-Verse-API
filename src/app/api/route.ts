@@ -2,7 +2,9 @@ import path from "path"
 import { NextResponse, NextRequest } from "next/server"
 import Database from "better-sqlite3"
 
-const db = new Database(path.join(".", "src", "app", "api", "anti-mormonism.db"))
+const db = new Database(path.join(process.cwd(), "public", "anti-mormonism.db"), {
+    readonly: true,
+})
 
 export async function GET(request: NextRequest) {
     const url = new URL(request.url)
