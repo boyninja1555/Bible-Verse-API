@@ -26,7 +26,7 @@ async function getVerse({
 			throw new Error(data.message)
 
 		const verseData = data.data as VerseData
-
+		console.log(SITE_URL)
 		return (
 			<Card>
 				<CardHeader className="flex items-center justify-between">
