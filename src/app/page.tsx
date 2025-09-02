@@ -1,5 +1,6 @@
 import Link from "next/link"
 import RefreshButton from "@/components/refresh-button"
+import LogClient from "@/components/log-client"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
@@ -26,10 +27,11 @@ async function getVerse({
 			throw new Error(data.message)
 
 		const verseData = data.data as VerseData
-		console.warn(SITE_URL)
 		return (
 			<Card>
 				<CardHeader className="flex items-center justify-between">
+					<LogClient message={SITE_URL} />
+
 					<CardTitle className="flex items-center gap-1 text-muted-foreground font-normal">
 						<span>{isRandom && "Random"}{isTodays && "Today's"}{(!isRandom && !isTodays) && "Searched"}</span>
 						<span>|</span>
