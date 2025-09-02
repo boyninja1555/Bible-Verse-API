@@ -20,7 +20,9 @@ async function getVerse({
 }): Promise<React.ReactNode> {
 	try {
 		const url = `${SITE_URL}/api${isRandom ? "?random" : ""}${isTodays ? "?todays" : ""}${book ? `?book=${book}` : ""}${chapter ? `&chapter=${chapter}` : ""}${verse ? `&verse=${verse}` : ""}`
-		const resp = await fetch(url)
+		const resp = await fetch(url, {
+			cache: "no-store",
+		})
 		const data = (await resp.json()) as ApiResponse
 
 		if (!data.success)
